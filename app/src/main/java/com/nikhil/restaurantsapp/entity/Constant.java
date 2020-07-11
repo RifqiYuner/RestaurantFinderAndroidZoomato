@@ -15,5 +15,5 @@ public class Constant {
     public static final int LOAD_ITEM_COUNT = 5;
     public static final int LOAD_PAGE_SIZE = 10;
 
-    public static final String DEFAULT_CITY = "DKI Jakarta";
+    public static final String DEFAULT_CITY = "Bandung";
 }

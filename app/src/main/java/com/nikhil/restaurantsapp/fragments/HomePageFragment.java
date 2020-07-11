@@ -27,12 +27,14 @@ import com.nikhil.restaurantsapp.adapters.HomePageAdapter;
 import com.nikhil.restaurantsapp.comp.RecyclerViewMargin;
 import com.nikhil.restaurantsapp.entity.Categories;
 import com.nikhil.restaurantsapp.entity.Constant;
+import com.nikhil.restaurantsapp.entity.GPSTracker;
 import com.nikhil.restaurantsapp.entity.Location;
 import com.nikhil.restaurantsapp.entity.Restaurants;
 import com.nikhil.restaurantsapp.entity.Utility;
 import com.nikhil.restaurantsapp.viewmodels.CategoryViewModel;
 import com.nikhil.restaurantsapp.viewmodels.LocationViewModel;
 import com.nikhil.restaurantsapp.viewmodels.RestaurantsViewModel;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,14 +57,44 @@ public class HomePageFragment extends BaseFragment{
     EditText query;
     long cityId;
     String currentCity;
-
     @Override
     public void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
         categoriesList = new ArrayList<>();
         restaurantHashMap = new HashMap<>();
-        currentCity = Constant.DEFAULT_CITY;
+
+        GPSTracker gpsTracker = new GPSTracker(getActivity());
+
+        if (gpsTracker.getIsGPSTrackingEnabled())
+        {
+            String stringLatitude = String.valueOf(gpsTracker.getLatitude());
+
+
+            String stringLongitude = String.valueOf(gpsTracker.getLongitude());
+            Log.d(TAG, "onCreate: Latitude "+stringLatitude);
+
+            String country = gpsTracker.getCountryName(getActivity());
+
+
+            String city = gpsTracker.getLocality(getActivity());
+
+
+            String postalCode = gpsTracker.getPostalCode(getActivity());
+
+
+            String addressLine = gpsTracker.getAddressLine(getActivity());
+            currentCity = city;
+        }
+        else
+        {
+            // can't get location
+            // GPS or Network is not enabled
+            // Ask user to enable GPS/network in settings
+            gpsTracker.showSettingsAlert();
+            currentCity = Constant.DEFAULT_CITY;
+        }
+
         showPrg(getString(R.string.pls_wait));
     }
 
