@@ -89,8 +89,8 @@ public class DetailPageFragment extends BaseFragment {
         webview.getSettings().setBuiltInZoomControls(true);
         String longitude = restaurant.getLocation().getlongitude();
         String latitude = restaurant.getLocation().getlatitude();
-        webview.loadUrl("https://had3ae.team/ppb/maps.php?long="+longitude+"&lat="+latitude);
-        Log.d(TAG, "https://had3ae.team/ppb/maps.php?long="+longitude+"&lat="+latitude);
+        webview.loadUrl("https://had3ae.team/ppb/osm.php?long="+longitude+"&lat="+latitude);
+        Log.d(TAG, "https://had3ae.team/ppb/osm.php?long="+longitude+"&lat="+latitude);
     }
 
     private void init()
