@@ -86,7 +86,7 @@ public class DetailPageFragment extends BaseFragment {
             bogoOffers.setVisibility(View.GONE);
         webview.setWebViewClient(new WebViewClient());
         webview.getSettings().setJavaScriptEnabled(true);
-        webview.getSettings().setBuiltInZoomControls(true);
+        webview.getSettings().setBuiltInZoomControls(false);
         String longitude = restaurant.getLocation().getlongitude();
         String latitude = restaurant.getLocation().getlatitude();
         webview.loadUrl("https://had3ae.team/ppb/osm.php?long="+longitude+"&lat="+latitude);
