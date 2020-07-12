@@ -1,7 +1,8 @@
 package com.uas.restaurantsearch.viewmodelsfactory;
 
-import android.arch.paging.PageKeyedDataSource;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.paging.PageKeyedDataSource;
+
 import android.util.Log;
 
 import com.uas.restaurantsearch.comp.ProgressBarInterface;

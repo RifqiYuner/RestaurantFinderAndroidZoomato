@@ -1,13 +1,13 @@
 package com.uas.restaurantsearch.adapters;
-
-import android.arch.paging.PagedListAdapter;
+import androidx.paging.PagedListAdapter;
+import androidx.recyclerview.widget.RecyclerView.Adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.core.graphics.drawable.DrawableCompat;
+import 	androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +21,7 @@ import com.uas.restaurantsearch.entity.Utility;
 import com.squareup.picasso.Picasso;
 
 
-public class RestaurantPagedListAdapter extends PagedListAdapter<Restaurants, RestaurantPagedListAdapter.RestaurantViewHolder>{
+public class RestaurantPagedListAdapter extends PagedListAdapter<Restaurants, RestaurantPagedListAdapter.RestaurantViewHolder> {
 
     AdapterInterface adapterInterface;
     Context context;

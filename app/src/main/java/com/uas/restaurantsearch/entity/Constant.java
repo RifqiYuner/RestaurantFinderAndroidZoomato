@@ -8,7 +8,7 @@ public class Constant {
     public static final String GET_CATEGORIES = "categories";
     public static final String SEARCH_RESTAURANTS = "search";
     public static final String SEARCH_LOCATIONS = "locations";
-
+    public static final String REVIEWS = "reviews";
     public static final int ROW_COUNT = 6;
     public static final String TYPE_CITY = "city";
 

@@ -1,6 +1,6 @@
 package com.uas.restaurantsearch.networks;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 
 import com.uas.restaurantsearch.entity.Constant;

@@ -1,8 +1,9 @@
 package com.uas.restaurantsearch.viewmodelsfactory;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+import androidx.annotation.NonNull;
 
 import com.uas.restaurantsearch.viewmodels.RestaurantsViewModel;
 

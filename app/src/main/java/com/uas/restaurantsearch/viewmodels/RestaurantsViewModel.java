@@ -1,7 +1,8 @@
 package com.uas.restaurantsearch.viewmodels;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
+
 
 import com.uas.restaurantsearch.entity.Restaurants;
 import com.uas.restaurantsearch.networks.APIRepo;

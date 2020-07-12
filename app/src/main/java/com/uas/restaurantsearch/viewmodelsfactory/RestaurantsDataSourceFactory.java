@@ -1,6 +1,6 @@
 package com.uas.restaurantsearch.viewmodelsfactory;
 
-import android.arch.paging.DataSource;
+import androidx.paging.DataSource;
 
 import com.uas.restaurantsearch.comp.ProgressBarInterface;
 import com.uas.restaurantsearch.entity.Categories;
