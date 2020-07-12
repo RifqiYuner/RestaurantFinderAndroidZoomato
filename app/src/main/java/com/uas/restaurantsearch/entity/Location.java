@@ -7,7 +7,8 @@ public class Location implements Serializable{
     public String getAddress() {
         return address;
     }
-
+    public String getlatitude() {return latitude;}
+    public String getlongitude() {return longitude;}
     public void setAddress(String address) {
         this.address = address;
     }
@@ -36,7 +37,7 @@ public class Location implements Serializable{
         this.locality_verbose = locality_verbose;
     }
 
-    private String address, locality, city, locality_verbose;
+    private String address, locality, city, locality_verbose, latitude, longitude;
 
 
     //Location Api response parameters...

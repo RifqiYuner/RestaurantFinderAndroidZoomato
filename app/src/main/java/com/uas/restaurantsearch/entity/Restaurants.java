@@ -1,6 +1,9 @@
 package com.uas.restaurantsearch.entity;
 
+import android.util.ArraySet;
+
 import java.io.Serializable;
+import java.lang.reflect.Array;
 
 public class Restaurants {
 
@@ -93,9 +96,15 @@ public class Restaurants {
         private String thumb;
         private String photos_url;
         private String featured_image;
-
+        private String has_online_delivery;
         private Location location;
-
+        private String[] highlights;
+        public String getHas_online_delivery() {
+            return has_online_delivery;
+        }
+        public String[] gethighlights() {
+            return highlights;
+        }
         public Location getLocation() {
             return location;
         }

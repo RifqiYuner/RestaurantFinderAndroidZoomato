@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import com.uas.restaurantsearch.R;
 import com.uas.restaurantsearch.entity.Restaurants;
 import com.uas.restaurantsearch.entity.Utility;
 import com.squareup.picasso.Picasso;
+
+import java.util.Arrays;
 
 public class DetailPageFragment extends BaseFragment {
 
@@ -45,7 +48,8 @@ public class DetailPageFragment extends BaseFragment {
     {
         super.onViewCreated(view, savedInstanceState);
         init();
-
+        String[] arrayhighlight = restaurant.gethighlights();
+        Log.d(TAG, "onViewCreated: "+ Arrays.toString(arrayhighlight));
         if(Utility.isValidStr(restaurant.getFeatured_image()))
         {
             int height = getActivity().getResources().getDimensionPixelSize(R.dimen.size_85);
