@@ -8,10 +8,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.uas.restaurantsearch.R;
+import com.uas.restaurantsearch.entity.GPSTracker;
 import com.uas.restaurantsearch.entity.Restaurants;
 import com.uas.restaurantsearch.entity.Utility;
 import com.squareup.picasso.Picasso;
@@ -25,10 +28,12 @@ public class DetailPageFragment extends BaseFragment {
     private Restaurants.Restaurant restaurant;
     private ImageView imageView;
     private TextView nameText, ratingText, cuisinesText, localityText, addressText, avgCost, bogoOffers, userRatingText;
+    private WebView webview;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+
         super.onCreateView(inflater, container, savedInstanceState);
         View mView = inflater.inflate(R.layout.restraurant_detail, container, false);
         imageView = mView.findViewById(R.id.image);
@@ -40,6 +45,10 @@ public class DetailPageFragment extends BaseFragment {
         avgCost = mView.findViewById(R.id.avg_cost);
         bogoOffers = mView.findViewById(R.id.bogo_txt);
         userRatingText = mView.findViewById(R.id.rating_text);
+        webview = mView.findViewById(R.id.webview);
+
+
+
         return mView;
     }
 
@@ -75,6 +84,13 @@ public class DetailPageFragment extends BaseFragment {
             bogoOffers.setVisibility(View.VISIBLE);
         else
             bogoOffers.setVisibility(View.GONE);
+        webview.setWebViewClient(new WebViewClient());
+        webview.getSettings().setJavaScriptEnabled(true);
+        webview.getSettings().setBuiltInZoomControls(true);
+        String longitude = restaurant.getLocation().getlongitude();
+        String latitude = restaurant.getLocation().getlatitude();
+        webview.loadUrl("https://had3ae.team/ppb/maps.php?long="+longitude+"&lat="+latitude);
+        Log.d(TAG, "https://had3ae.team/ppb/maps.php?long="+longitude+"&lat="+latitude);
     }
 
     private void init()
