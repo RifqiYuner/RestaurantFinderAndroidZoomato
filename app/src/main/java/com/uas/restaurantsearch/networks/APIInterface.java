@@ -22,5 +22,5 @@ public interface APIInterface {
     Call<ServerResponses> searchLocations(@Query("query") String query);
 
     @GET(Constant.REVIEWS)
-    Call<ServerResponses> reviews(@Query("query") Integer query);
+    Call<ServerResponses> reviews(@Query("query") String query);
 }

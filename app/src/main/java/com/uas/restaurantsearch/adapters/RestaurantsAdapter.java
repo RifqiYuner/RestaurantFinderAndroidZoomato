@@ -1,5 +1,6 @@
 package com.uas.restaurantsearch.adapters;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
@@ -22,9 +23,10 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
 
     List<Restaurants> restaurants;
     AdapterInterface mInterface;
-
+    Context context;
     public RestaurantsAdapter(List<Restaurants> restaurants, AdapterInterface mInterface)
     {
+
         this.restaurants = restaurants;
         this.mInterface = mInterface;
     }
@@ -32,7 +34,8 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
     @NonNull
     @Override
     public RestaurantHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.child_recycler, viewGroup, false);
+            context = viewGroup.getContext();
+            View view = LayoutInflater.from(context).inflate(R.layout.child_recycler, viewGroup, false);
             return new RestaurantHolder(view);
     }
 
@@ -50,7 +53,11 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
         drawable = DrawableCompat.wrap(drawable);
         DrawableCompat.setTint(drawable, Color.parseColor("#" + restaurant.getUser_rating().getRating_color()));
         holder.ratings.setBackground(drawable);
-
+        holder.price.setText(context.getString(R.string.price_for_two,restaurant.getCurrency(),restaurant.getAverage_cost_for_two()));
+        if(restaurant.getHas_online_delivery().equals("0"))
+            holder.delivery.setVisibility(View.VISIBLE);
+        else
+            holder.delivery.setVisibility(View.GONE);
         holder.mView.setTag(restaurant);
         holder.mView.setOnClickListener(clickListener);
     }
@@ -65,7 +72,7 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
         ImageView imageView;
         TextView textView;
         TextView address;
-        TextView cuisines, ratings;
+        TextView cuisines, ratings,price,delivery;
         View mView;
 
         public RestaurantHolder(View view)
@@ -76,6 +83,8 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
             address = view.findViewById(R.id.address);
             cuisines = view.findViewById(R.id.cuisines);
             ratings = view.findViewById(R.id.ratings);
+            price = view.findViewById(R.id.pricetwo);
+            delivery = view.findViewById(R.id.bogo_txt_home);
             mView = view;
         }
     }

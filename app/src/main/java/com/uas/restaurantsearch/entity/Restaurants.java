@@ -128,8 +128,9 @@ public class Restaurants {
         public void setUser_rating(UserRatings user_rating) {
             this.user_rating = user_rating;
         }
-
+    
         private UserRatings user_rating;
+
 
     }
 }

@@ -57,7 +57,7 @@ public class RestaurantPagedListAdapter extends PagedListAdapter<Restaurants, Re
         DrawableCompat.setTint(drawable, Color.parseColor("#" + restaurant.getUser_rating().getRating_color()));
         holder.rating.setBackground(drawable);
         if(Utility.isValidStr(restaurant.getAverage_cost_for_two())) {
-            holder.avgCost.setText(context.getString(R.string.avg_cost_short, restaurant.getAverage_cost_for_two()));
+            holder.avgCost.setText(context.getString(R.string.avg_cost_short, restaurant.getCurrency() + " " + restaurant.getAverage_cost_for_two()));
         }
         else
         {
