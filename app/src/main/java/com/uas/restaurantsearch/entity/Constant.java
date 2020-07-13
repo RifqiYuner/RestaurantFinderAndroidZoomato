@@ -2,7 +2,7 @@ package com.uas.restaurantsearch.entity;
 
 public class Constant {
 
-    public static final String API_KEY = "49ee34e0fb5637b0b4bc43218e5af60b";
+    public static final String API_KEY = "71c25abcd3337b557d50e05ab000c5e1";
 
     public static final String BASE_URL = "https://developers.zomato.com/api/v2.1/";
     public static final String GET_CATEGORIES = "categories";

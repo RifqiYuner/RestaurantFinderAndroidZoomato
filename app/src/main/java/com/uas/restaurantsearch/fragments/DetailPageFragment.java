@@ -144,7 +144,7 @@ public class DetailPageFragment extends BaseFragment {
             HttpHandler httpHandler = new HttpHandler();
 
             // JSON data url
-            String jsonurl = "https://api.zomato.com/v1/reviews.json/"+restaurant.getId()+"/user?count=0&apikey=49ee34e0fb5637b0b4bc43218e5af60b";
+            String jsonurl = "https://api.zomato.com/v1/reviews.json/"+restaurant.getId()+"/user?count=0&apikey=71c25abcd3337b557d50e05ab000c5e1";
             String jsonString = httpHandler.makeServiceCall(jsonurl);
             Log.e(TAG, "Response from url: " + jsonString);
             if (jsonString != null) {
