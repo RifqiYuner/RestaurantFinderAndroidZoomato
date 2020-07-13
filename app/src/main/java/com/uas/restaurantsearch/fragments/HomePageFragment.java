@@ -68,22 +68,7 @@ public class HomePageFragment extends BaseFragment{
 
         if (gpsTracker.getIsGPSTrackingEnabled())
         {
-            String stringLatitude = String.valueOf(gpsTracker.getLatitude());
-
-
-            String stringLongitude = String.valueOf(gpsTracker.getLongitude());
-            Log.d(TAG, "onCreate: Latitude "+stringLatitude);
-
-            String country = gpsTracker.getCountryName(getActivity());
-
-
             String city = gpsTracker.getLocality(getActivity());
-
-
-            String postalCode = gpsTracker.getPostalCode(getActivity());
-
-
-            String addressLine = gpsTracker.getAddressLine(getActivity());
             currentCity = city;
         }
         else

@@ -22,6 +22,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.uas.restaurantsearch.R;
+import com.uas.restaurantsearch.entity.Constant;
 import com.uas.restaurantsearch.entity.GPSTracker;
 import com.uas.restaurantsearch.entity.Restaurants;
 import com.uas.restaurantsearch.entity.Utility;
@@ -80,11 +81,8 @@ public class DetailPageFragment extends BaseFragment {
     {
         super.onViewCreated(view, savedInstanceState);
         init();
-        String[] arrayhighlight = restaurant.gethighlights();
-        int n = 0;
-        while (arrayhighlight[n].isEmpty()) {
-            Log.d(TAG, "onViewCreated: " + arrayhighlight[n]);
-        }
+
+
         if(Utility.isValidStr(restaurant.getFeatured_image()))
         {
             int height = getActivity().getResources().getDimensionPixelSize(R.dimen.size_85);
@@ -144,7 +142,7 @@ public class DetailPageFragment extends BaseFragment {
             HttpHandler httpHandler = new HttpHandler();
 
             // JSON data url
-            String jsonurl = "https://api.zomato.com/v1/reviews.json/"+restaurant.getId()+"/user?count=0&apikey=71c25abcd3337b557d50e05ab000c5e1";
+            String jsonurl = "https://api.zomato.com/v1/reviews.json/"+restaurant.getId()+"/user?count=0&apikey="+ Constant.API_KEY;
             String jsonString = httpHandler.makeServiceCall(jsonurl);
             Log.e(TAG, "Response from url: " + jsonString);
             if (jsonString != null) {
